@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+auto-daily-log.json
+.DS_Store
+replit.md
+.replit
