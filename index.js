@@ -349,7 +349,7 @@ function getMainMenu(userId) {
   const isUserAdmin = isAdmin(userId);
   const buttons = [
     [Markup.button.callback('📫 Tambah Wallet', 'add_wallet')],
-    [Markup.button.callback('⚡ Transfer', 'user_transfer')],
+    [Markup.button.callback('🚰 Faucet', 'user_transfer')],
     [Markup.button.callback('📋 Wallet Saya', 'my_wallets'), Markup.button.callback('📊 Statistik', 'stats')],
     [Markup.button.callback('❓ Bantuan', 'help')]
   ];
@@ -485,7 +485,7 @@ bot.action('user_transfer', (ctx) => {
   sessionManager.setState(userId, 'waiting_user_transfer');
   
   ctx.editMessageText(
-    `⚡ *Transfer 0.01 DIAM*\n\n` +
+    `🚰 *Faucet - 0.01 DIAM*\n\n` +
     `Kirimkan alamat wallet tujuan:\n\n` +
     `_(Format: 0x... dengan 42 karakter)_`,
     { 
