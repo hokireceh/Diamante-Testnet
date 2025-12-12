@@ -14,12 +14,13 @@
     "lastBroadcast": null
   },
   "users": {
-    "totalCommands": 28,
+    "totalCommands": 30,
     "uniqueUsersToday": [
-      "1170158500"
+      "1170158500",
+      "5351677684"
     ],
     "commandBreakdown": {
-      "start": 21,
+      "start": 23,
       "text_message": 7
     }
   },
@@ -42,6 +43,9 @@
     },
     "18": {
       "commands": 3
+    },
+    "19": {
+      "commands": 2
     }
   }
 }
