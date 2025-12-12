@@ -1,6 +1,34 @@
 {
   "logs": [
     {
+      "id": "mj38r7jwy78im",
+      "timestamp": "2025-12-12T19:09:39.452Z",
+      "action": "BROADCAST",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalUsers": 5,
+        "sent": 0,
+        "failed": 0,
+        "messagePreview": "🚰 Faucet sudah tersedia.\n\nJangan lupa join \n- @garapanairdrop_indonesia\n\nTerima kasih."
+      },
+      "ip": null
+    },
+    {
+      "id": "mj38nslh8wodu",
+      "timestamp": "2025-12-12T19:07:00.101Z",
+      "action": "BROADCAST",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalUsers": 6,
+        "sent": 1,
+        "failed": 1,
+        "messagePreview": "🚰 Faucet sudah tersedia.\n\nJangan lupa join \n- @garapanairdrop_indonesia\n\nTerima kasih."
+      },
+      "ip": null
+    },
+    {
       "id": "mj306wdw9ziis",
       "timestamp": "2025-12-12T15:09:54.932Z",
       "action": "BATCH_TRANSFER",
@@ -85,5 +113,5 @@
       "ip": null
     }
   ],
-  "lastUpdated": "2025-12-12T19:04:35.289Z"
+  "lastUpdated": "2025-12-12T19:09:42.455Z"
 }

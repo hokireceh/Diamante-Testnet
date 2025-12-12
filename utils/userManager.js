@@ -149,6 +149,34 @@ class UserManager {
         return false;
     }
 
+    removeUser(userId) {
+        const userIdStr = userId.toString();
+        if (this.users.has(userIdStr)) {
+            this.users.delete(userIdStr);
+            this.debouncedSave();
+            logger.info(`Removed user: ${userId}`);
+            return true;
+        }
+        return false;
+    }
+
+    removeBlockedUsers() {
+        const blockedUsers = this.getAllUsers().filter(u => u.blocked || u.leftBot);
+        let removed = 0;
+        
+        for (const user of blockedUsers) {
+            this.users.delete(user.userId);
+            removed++;
+        }
+        
+        if (removed > 0) {
+            this.saveUsers();
+            logger.info(`Removed ${removed} blocked/left users`);
+        }
+        
+        return removed;
+    }
+
     setUserLanguage(userId, language) {
         const user = this.getUser(userId) || {};
         user.language = language;

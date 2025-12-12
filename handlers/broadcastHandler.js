@@ -141,7 +141,7 @@ class BroadcastHandler {
 
                         if (error.message?.includes('blocked') || 
                             error.message?.includes('deactivated')) {
-                            userManager.markUserLeft(user.userId);
+                            userManager.removeUser(user.userId);
                         }
 
                         throw error;

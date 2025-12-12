@@ -8,20 +8,20 @@
     "lastTransfer": "2025-12-12T18:52:33.930Z"
   },
   "broadcasts": {
-    "total": 0,
-    "totalSent": 0,
-    "totalFailed": 0,
-    "lastBroadcast": null
+    "total": 2,
+    "totalSent": 1,
+    "totalFailed": 1,
+    "lastBroadcast": "2025-12-12T19:09:39.452Z"
   },
   "users": {
-    "totalCommands": 32,
+    "totalCommands": 35,
     "uniqueUsersToday": [
       "1170158500",
       "5351677684"
     ],
     "commandBreakdown": {
-      "start": 25,
-      "text_message": 7
+      "start": 26,
+      "text_message": 9
     }
   },
   "liveChat": {
@@ -34,7 +34,8 @@
       "transfers": 145
     },
     "2025-12-12": {
-      "transfers": 287
+      "transfers": 287,
+      "broadcasts": 2
     }
   },
   "hourly": {
@@ -45,7 +46,7 @@
       "commands": 3
     },
     "19": {
-      "commands": 4
+      "commands": 7
     }
   }
 }
