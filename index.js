@@ -363,7 +363,7 @@ function getMainMenu(userId) {
 function getAdminMenu() {
   return Markup.inlineKeyboard([
     [Markup.button.callback('💰 Cek Balance', 'balance'), Markup.button.callback('🚰 Claim Faucet', 'faucet')],
-    [Markup.button.callback('🚀 Batch Transfer', 'transfer')],
+    [Markup.button.callback('⚡ Single Transfer', 'single_transfer'), Markup.button.callback('🚀 Batch Transfer', 'transfer')],
     [Markup.button.callback('📢 Broadcast', 'broadcast'), Markup.button.callback('💬 Live Chat', 'livechat_menu')],
     [Markup.button.callback('📋 Lihat Wallets', 'wallets'), Markup.button.callback('👥 Lihat Admin', 'admins')],
     [Markup.button.callback('📈 Analytics', 'analytics')],
@@ -487,6 +487,33 @@ bot.action('admin_menu', (ctx) => {
   ctx.editMessageText(
     `🔐 *Menu Admin*\n\nPilih aksi:`,
     { parse_mode: 'Markdown', ...getAdminMenu() }
+  );
+  ctx.answerCbQuery();
+});
+
+bot.action('single_transfer', (ctx) => {
+  if (!isAdmin(ctx.from.id)) {
+    ctx.answerCbQuery('🔒 Akses ditolak');
+    return;
+  }
+  
+  if (!ACCESS_TOKEN || !USER_ID) {
+    ctx.answerCbQuery('❌ Token belum dikonfigurasi');
+    return;
+  }
+  
+  const userId = ctx.from.id;
+  sessionManager.setState(userId, 'waiting_single_transfer');
+  
+  ctx.editMessageText(
+    `⚡ *Single Transfer*\n\n` +
+    `Kirimkan address dan jumlah dengan format:\n\n` +
+    `\`<address> <jumlah>\`\n\n` +
+    `Contoh:\n\`0x1234...abcd 0.001\``,
+    { 
+      parse_mode: 'Markdown',
+      ...Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
+    }
   );
   ctx.answerCbQuery();
 });
@@ -967,6 +994,79 @@ bot.on('text', async (ctx) => {
       ctx.reply(
         '❌ Gagal menambahkan wallet.',
         Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'main_menu')]])
+      );
+    }
+    return;
+  }
+  
+  // Handle single transfer input
+  if (state === 'waiting_single_transfer') {
+    const parts = text.trim().split(/\s+/);
+    
+    if (parts.length < 2) {
+      return ctx.reply(
+        '❌ Format salah!\n\nGunakan: `<address> <jumlah>`\nContoh: `0x1234...abcd 0.001`',
+        {
+          parse_mode: 'Markdown',
+          ...Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
+        }
+      );
+    }
+    
+    const address = parts[0];
+    const amount = parseFloat(parts[1]);
+    
+    if (!validationHelper.isValidWalletAddress(address)) {
+      return ctx.reply(
+        '❌ Address tidak valid!\n\nFormat: 0x... (42 karakter)',
+        Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
+      );
+    }
+    
+    if (isNaN(amount) || amount <= 0) {
+      return ctx.reply(
+        '❌ Jumlah tidak valid!\n\nMasukkan angka positif.',
+        Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
+      );
+    }
+    
+    sessionManager.clearState(userId);
+    
+    const msg = await ctx.reply(`⚡ Memproses transfer ${amount} DIAM ke ${address.slice(0, 10)}...`);
+    
+    try {
+      const { success, result, attempts } = await transferWithRetry(address, amount);
+      
+      if (success) {
+        const hash = result.data?.transferData?.hash || 'N/A';
+        let message = `✅ *TRANSFER BERHASIL!*\n\n`;
+        message += `📫 To: \`${address}\`\n`;
+        message += `💰 Amount: ${amount} DIAM\n`;
+        message += `🔗 Hash: \`${hash}\`\n`;
+        if (attempts > 1) message += `🔄 Attempts: ${attempts}`;
+        
+        await ctx.telegram.editMessageText(ctx.chat.id, msg.message_id, null, message, {
+          parse_mode: 'Markdown',
+          ...Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
+        });
+        
+        try {
+          const mysteryResult = await claimMysteryBox();
+          if (mysteryResult.success && mysteryResult.data?.mysteryReward) {
+            ctx.reply(`🎁 Mystery Box: +${mysteryResult.data.mysteryReward} ${mysteryResult.data.rewardType || 'XP'}`);
+          }
+        } catch (e) {}
+      } else {
+        const errorMsg = result?.message || 'Unknown error';
+        await ctx.telegram.editMessageText(ctx.chat.id, msg.message_id, null,
+          `❌ Transfer gagal setelah ${attempts}x percobaan.\n\nError: ${errorMsg}`,
+          Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
+        );
+      }
+    } catch (error) {
+      await ctx.telegram.editMessageText(ctx.chat.id, msg.message_id, null,
+        `❌ Error: ${error.message}`,
+        Markup.inlineKeyboard([[Markup.button.callback('« Kembali', 'admin_menu')]])
       );
     }
     return;
