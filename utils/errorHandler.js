@@ -53,7 +53,7 @@ class ErrorHandler {
         const message = (error.message || '').toLowerCase();
         const code = error.code;
         
-        if (message.includes('timeout') || message.includes('etimedout')) return 'TIMEOUT';
+        if (message.includes('timeout') || message.includes('timed out') || message.includes('etimedout')) return 'TIMEOUT';
         if (message.includes('forbidden') || code === 403) return 'PERMISSION';
         if (message.includes('not found') || code === 404) return 'NOT_FOUND';
         if (message.includes('rate limit') || code === 429) return 'RATE_LIMIT';

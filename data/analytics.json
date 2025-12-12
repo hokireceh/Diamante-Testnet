@@ -1,11 +1,11 @@
 {
   "transfers": {
-    "total": 640,
-    "success": 424,
+    "total": 648,
+    "success": 432,
     "failed": 216,
-    "totalAmount": 0.4240000000000003,
+    "totalAmount": 0.43200000000000033,
     "mysteryXP": 0,
-    "lastTransfer": "2025-12-12T18:50:11.137Z"
+    "lastTransfer": "2025-12-12T18:52:33.930Z"
   },
   "broadcasts": {
     "total": 0,
@@ -33,7 +33,7 @@
       "transfers": 145
     },
     "2025-12-12": {
-      "transfers": 279
+      "transfers": 287
     }
   },
   "hourly": {
