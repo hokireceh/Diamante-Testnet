@@ -1,0 +1,44 @@
+{
+  "transfers": {
+    "total": 623,
+    "success": 407,
+    "failed": 216,
+    "totalAmount": 0.4070000000000003,
+    "mysteryXP": 0,
+    "lastTransfer": "2025-12-12T18:43:16.907Z"
+  },
+  "broadcasts": {
+    "total": 0,
+    "totalSent": 0,
+    "totalFailed": 0,
+    "lastBroadcast": null
+  },
+  "users": {
+    "totalCommands": 25,
+    "uniqueUsersToday": [
+      "1170158500"
+    ],
+    "commandBreakdown": {
+      "start": 18,
+      "text_message": 7
+    }
+  },
+  "liveChat": {
+    "totalMessages": 0,
+    "totalReplies": 0,
+    "avgResponseTime": 0
+  },
+  "daily": {
+    "2025-12-11": {
+      "transfers": 145
+    },
+    "2025-12-12": {
+      "transfers": 262
+    }
+  },
+  "hourly": {
+    "1": {
+      "commands": 1
+    }
+  }
+}

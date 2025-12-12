@@ -1,9 +1,5 @@
 [
   {
-    "address": "0x3e60acbec70c97ac3d3c8b9f877db746ea88b135",
-    "amount": 0.001
-  },
-  {
     "address": "0xd98656735E2BA24aA705b41d026eA64069231E20",
     "amount": 0.001
   },
@@ -273,6 +269,34 @@
   },
   {
     "address": "0xa03077147cbf35343d30fe73b5beff6fcbda5ffc",
+    "amount": 0.001
+  },
+  {
+    "address": "0x999190c7935ac3ca30119423896fcbdcefc16620",
+    "amount": 0.001
+  },
+  {
+    "address": "0x842fd36aee439e5db5b5d9ae657efa055ec3b5db",
+    "amount": 0.001
+  },
+  {
+    "address": "0x49c926ff7df7c5d8c6a62fb94f15f42b37a04e4e",
+    "amount": 0.001
+  },
+  {
+    "address": "0x6d6f06b4eef5b35e9d0c56e540dccb3860381830",
+    "amount": 0.001
+  },
+  {
+    "address": "0x4792aab453e8ae7ac7be9cad4b48204986c475b3",
+    "amount": 0.001
+  },
+  {
+    "address": "0x2053b94fb7aa41f8f5622e82585d2bc294707a06",
+    "amount": 0.001
+  },
+  {
+    "address": "0x2765bf1d8050c645968599676d98eec38d21b4d9",
     "amount": 0.001
   }
 ]

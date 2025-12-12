@@ -1,0 +1,89 @@
+{
+  "logs": [
+    {
+      "id": "mj306wdw9ziis",
+      "timestamp": "2025-12-12T15:09:54.932Z",
+      "action": "BATCH_TRANSFER",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalWallets": 72,
+        "success": 72,
+        "failed": 0,
+        "mysteryXP": 0
+      },
+      "ip": null
+    },
+    {
+      "id": "mj2j6h8qse1zz",
+      "timestamp": "2025-12-12T07:13:41.834Z",
+      "action": "BATCH_TRANSFER",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalWallets": 70,
+        "success": 70,
+        "failed": 0,
+        "mysteryXP": 0
+      },
+      "ip": null
+    },
+    {
+      "id": "mj2f2qy5rva6j",
+      "timestamp": "2025-12-12T05:18:49.325Z",
+      "action": "BATCH_TRANSFER",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalWallets": 69,
+        "success": 0,
+        "failed": 69,
+        "mysteryXP": 0
+      },
+      "ip": null
+    },
+    {
+      "id": "mj1v5inwe6voc",
+      "timestamp": "2025-12-11T20:01:06.236Z",
+      "action": "BATCH_TRANSFER",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalWallets": 69,
+        "success": 0,
+        "failed": 69,
+        "mysteryXP": 0
+      },
+      "ip": null
+    },
+    {
+      "id": "mj1mpjj92ddtz",
+      "timestamp": "2025-12-11T16:04:43.941Z",
+      "action": "BATCH_TRANSFER",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalWallets": 68,
+        "success": 68,
+        "failed": 0,
+        "mysteryXP": 0
+      },
+      "ip": null
+    },
+    {
+      "id": "mj1mp7k8o8bzg",
+      "timestamp": "2025-12-11T16:04:28.424Z",
+      "action": "BATCH_TRANSFER",
+      "adminId": "1170158500",
+      "adminName": "ꦲꦺꦴꦏꦶꦫꦺꦕꦺꦃ",
+      "details": {
+        "totalWallets": 68,
+        "success": 68,
+        "failed": 0,
+        "mysteryXP": 0
+      },
+      "ip": null
+    }
+  ],
+  "lastUpdated": "2025-12-12T18:43:25.301Z"
+}
