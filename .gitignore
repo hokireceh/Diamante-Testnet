@@ -1,0 +1,15 @@
+node_modules/
+.env
+*.log
+.DS_Store
+.replit
+tokens.json
+data/
+attached_assets/
+auto-daily-log.json
+processed_transactions.json
+transfer_queue.json
+auto_transfer_log.json
+replit.md
+index.js.bak
+obf/

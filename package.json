@@ -1,0 +1,16 @@
+{
+  "name": "diamante-auto-transfer",
+  "version": "1.0.0",
+  "description": "Telegram bot for Diamante Auto Transfer",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cloudscraper": "^4.6.0",
+    "dotenv": "^17.2.3",
+    "ethers": "^6.16.0",
+    "telegraf": "^4.16.3"
+  }
+}
